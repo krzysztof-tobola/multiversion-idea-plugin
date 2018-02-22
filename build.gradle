@@ -1,0 +1,14 @@
+plugins {
+    id "org.jetbrains.intellij" version "0.2.18" apply false
+}
+
+subprojects {
+    apply plugin: "org.jetbrains.intellij"
+    apply plugin: "java"
+
+    sourceSets.forEach { sourceSet ->
+        ['resources', 'java'].each { subSet ->
+            sourceSet[subSet].srcDirs += parent.file("src/$sourceSet.name/$subSet")
+        }
+    }
+}

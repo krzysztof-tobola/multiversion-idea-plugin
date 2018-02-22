@@ -1,0 +1,17 @@
+<idea-plugin>
+  <name>Example plugin for IJ15</name>
+  <id>com.github.tobolak.example.v17</id>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <toolWindow id="ExampleWindow"
+      anchor="right"
+      canCloseContents="false"
+      order="last"
+      factoryClass="com.github.tobolak.example.WindowFactory"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="com.github.tobolak.example.CompatibilityService"
+      serviceImplementation="com.github.tobolak.example.v17.Ij17CompatibilityService"/>
+  </extensions>
+</idea-plugin>
