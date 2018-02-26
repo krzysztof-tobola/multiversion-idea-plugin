@@ -1,3 +1,5 @@
+import com.github.tobolak.build.InheritSourcesPlugin
+
 plugins {
     id "org.jetbrains.intellij" version "0.2.18" apply false
 }
@@ -5,10 +7,7 @@ plugins {
 subprojects {
     apply plugin: "org.jetbrains.intellij"
     apply plugin: "java"
+    apply plugin: InheritSourcesPlugin
 
-    sourceSets.forEach { sourceSet ->
-        ['resources', 'java'].each { subSet ->
-            sourceSet[subSet].srcDirs += parent.file("src/$sourceSet.name/$subSet")
-        }
-    }
+    ext.inheritSourcesFrom = parent
 }
